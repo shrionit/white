@@ -41,6 +41,10 @@ export default function Register({ onSubmit }) {
     mobileValidation.valid = "";
     emailValidation.valid = "";
     passwordValidation.valid = "";
+    userName.current.value = "";
+    userMobile.current.value = "";
+    userEmail.current.value = "";
+    userPassword.current.value = "";
   };
 
   const submitHandler = (e) => {
@@ -85,6 +89,7 @@ export default function Register({ onSubmit }) {
     email: [
       (v) => !!v || "Email is Required",
       (v) => (!!v && helper.validations.emailIsValid(v)) || "Invalid email",
+      (v) => (!!v && !helper.storage.exists(v)) || "Email already exists",
     ],
     password: [
       (v) => !!v || "Password is Required",

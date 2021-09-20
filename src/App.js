@@ -1,6 +1,6 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UserList from "./pages/UserList";
@@ -29,6 +29,7 @@ function App() {
               <Route path="/userlist">
                 <UserList />
               </Route>
+              <Redirect to="/login" />
             </div>
           </div>
         </div>

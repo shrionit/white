@@ -17,8 +17,20 @@ export default function UserList() {
       </tr>
     );
   };
+  const resetList = () => {
+    helper.storage.resetStorage();
+    setUsers([]);
+  };
   return (
     <div className="border p-1">
+      <div className="flex justify-end py-2">
+        <button
+          className="px-4 py-1 font-medium  border-2 bg-white shadow hover:bg-gray-100 uppercase"
+          onClick={resetList}
+        >
+          Delete All
+        </button>
+      </div>
       <table className="w-full border-2">
         <tr className="bg-blue-200 rounded">
           <th className="text-left py-1 px-2 border border-gray-400">Name</th>
